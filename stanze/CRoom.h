@@ -41,7 +41,7 @@ public:
     /// @name CONSTRUCTORS / DESTRUCTOR
     /// @{
     Room();
-    Room(int id, int type);
+    Room(int id, int type, float target_temp, float target_humid);
     Room(const Room &r);
 
     virtual ~Room();
@@ -415,8 +415,8 @@ public:
     void SetNebulizer(Nebulizer *nebulizer);
     Nebulizer *GetNebulizer();
 
-    void SetNebulizer(Nebulizer *nebulizer);
-    Nebulizer *GetNebulizer();
+    void SetAirConditioner(AirConditioner *conditioner);
+    AirConditioner *GetAirConditioner();
     /// @}
 
     /// @name ACCESS MANAGEMENT

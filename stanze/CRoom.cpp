@@ -2,7 +2,7 @@
     \brief Implementation of the abstract class Room and derived classes
     \author Leonardo Delfini
 */
-
+#include <iostream>
 #include "CRoom.h"
 
 using namespace std;
@@ -14,7 +14,9 @@ Room::Room()
 
 /// @brief Init Constructor
 /// @param id Room identifier
-Room::Room(int id)
+/// @param target_temp Target temperature
+/// @param target_humid Target humidity
+Room::Room(int id, int type, float target_temp, float target_humid)
 {
 }
 
@@ -79,19 +81,19 @@ void Room::SetTargetTemp(float target)
 
 /// @brief Gets the target temperature of the room
 /// @return target temperature
-float Room::GetTargetTemp() 
+float Room::GetTargetTemp()
 {
 }
 
 /// @brief Sets the target humidity of the room
 /// @param target target humidity
-void Room::SetTargetHumid(float target) 
+void Room::SetTargetHumid(float target)
 {
 }
 
 /// @brief Gets the target humidity of the room
 /// @return target humidity
-float Room::GetTargetHumid() 
+float Room::GetTargetHumid()
 {
 }
 
@@ -109,15 +111,27 @@ int Room::GetType()
 
 /// @brief To measure smoke presence
 /// @return True if there is smoke, 0 otherwise
-bool Room::MeasureSmoke() { cout << "ERROR" << endl }
+bool Room::MeasureSmoke()
+{
+    cout << "ERROR" << endl;
+    exit(1);
+}
 
 /// @brief To measure temperature
 /// @return temperature
-float Room::MeasureTemperature() { cout << "ERROR" << endl }
+float Room::MeasureTemperature()
+{
+    cout << "ERROR" << endl;
+    exit(1);
+}
 
 /// @brief To measure humidity
 /// @return humidity
-float Room::MeasureHumidity() { cout << "ERROR" << endl }
+float Room::MeasureHumidity()
+{
+    cout << "ERROR" << endl;
+    exit(1);
+}
 
 /// @brief Prints every info - useful for debugging
 void Room::Dump()
@@ -141,7 +155,7 @@ Office::Office(int id,
                SmokeDetector *smoke_sensor,
                Alarm *alarm,
                Nebulizer *nebulizer,
-               Conditioner *conditioner)
+               AirConditioner *conditioner)
 {
 }
 
@@ -236,13 +250,13 @@ Nebulizer *Office::GetNebulizer()
 
 /// @brief Air Conditioner Setter
 /// @param conditioner Pointer to the air conditioner
-void Office::SetAirConditioner(Conditioner *conditioner)
+void Office::SetAirConditioner(AirConditioner *conditioner)
 {
 }
 
 /// @brief Air Conditioner Getter
 /// @return Pointer to the air conditioner
-Conditioner *Office::GetAirConditioner()
+AirConditioner *Office::GetAirConditioner()
 {
 }
 
@@ -284,7 +298,7 @@ Storage::Storage(int id,
                  Thermometer *temp_sensor,
                  HumiditySensor *humidity_sensor,
                  Alarm *alarm,
-                 Conditioner *conditioner,
+                 AirConditioner *conditioner,
                  Dehumidifier *dehumidifier)
 {
 }
@@ -380,13 +394,13 @@ Alarm *Storage::GetAlarm()
 
 /// @brief Air Conditioner Setter
 /// @param conditioner Pointer to the air conditioner
-void Storage::SetAirConditioner(Conditioner *conditioner)
+void Storage::SetAirConditioner(AirConditioner *conditioner)
 {
 }
 
 /// @brief Air Conditioner Getter
 /// @return Pointer to the air conditioner
-Conditioner *Storage::GetAirConditioner()
+AirConditioner *Storage::GetAirConditioner()
 {
 }
 
@@ -554,10 +568,10 @@ Laboratory::Laboratory(int id,
                        SmokeDetector *smoke_sensor,
                        Thermometer *temp_sensor,
                        HumiditySensor *humidity_sensor,
-                       Conditioner *conditioner,
+                       AirConditioner *conditioner,
                        Dehumidifier *dehumidifier,
                        Alarm *alarm,
-                       Nebilizer *nebulizer)
+                       Nebulizer *nebulizer)
 {
 }
 
@@ -640,13 +654,13 @@ HumiditySensor *Laboratory::GetHumiditySensor()
 
 /// @brief Conditioner Setter
 /// @param conditioner Pointer to the conditioner actuator
-void Laboratory::SetConditioner(Conditioner *conditioner)
+void Laboratory::SetConditioner(AirConditioner *conditioner)
 {
 }
 
 /// @brief Conditioner Getter
 /// @return Pointer to the conditioner actuator
-Conditioner *Laboratory::GetConditioner()
+AirConditioner *Laboratory::GetAirConditioner()
 {
 }
 
